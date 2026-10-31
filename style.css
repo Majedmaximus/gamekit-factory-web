@@ -1,0 +1,15 @@
+:root{color-scheme:dark;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:#0c1726;color:#f1f6ff}
+*{box-sizing:border-box}body{margin:0;min-height:100svh;display:grid;place-items:center;background:radial-gradient(circle at 50% 0,#203c56,#0c1726 65%)}
+.app{width:min(100%,460px);padding:clamp(18px,5vw,32px);text-align:center}.overline{color:#80e3c3;font-size:.7rem;font-weight:700;letter-spacing:.13em}h1{font-size:clamp(2.3rem,8vw,3.4rem);margin:10px 0 0}
+p{line-height:1.5;color:#c8d7e8}header p{margin-top:6px;font-size:.95rem}.actions{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:20px 0 16px}
+button{font:inherit;cursor:pointer;border:1px solid #476283;border-radius:11px;padding:10px 13px;color:#f3f8ff;background:#1b324d;min-height:44px}
+button:hover:not(:disabled){background:#2e5376}button:focus-visible{outline:3px solid #80e3c3;outline-offset:3px}
+button:disabled{cursor:default;opacity:.5}.mode{color:#80e3c3;font-size:.86rem;margin:9px 0 15px;font-weight:600}
+.board{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;margin:0 auto;width:min(100%,350px);aspect-ratio:1;padding:9px;background:#10253a;border-radius:20px;border:1px solid #294765}
+.tile{font-weight:750;font-size:clamp(1.2rem,5vw,2rem);background:linear-gradient(160deg,#32618a,#294263);border-color:#44739b;border-radius:12px;padding:0;min-height:0;aspect-ratio:1;touch-action:manipulation}
+.tile:disabled:not(.empty){opacity:.77}.tile.empty{background:transparent;border:1px dashed #385670;opacity:1}
+.actions.secondary{margin:18px 0 10px}.secondary button{min-width:90px}
+#status{font-weight:650;color:#f1f6ff;min-height:25px;margin:10px 0 0}.best{color:#80e3c3;font-size:.9rem;min-height:18px;margin:6px 0}
+.instructions{font-size:.87rem;margin-top:20px}.note{font-size:.76rem;margin:7px 0;color:#93aac3}
+footer{margin-top:20px;border-top:1px solid #243d55;padding-top:10px}
+@media (prefers-reduced-motion:no-preference){button{transition:background-color .13s ease,transform .13s ease}button:active:not(:disabled){transform:scale(.97)}}
