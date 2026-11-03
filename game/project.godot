@@ -1,0 +1,17 @@
+; Engine configuration for Godot 4.4.1
+config_version=5
+
+[application]
+config/name="Slide 15 — GameKit Factory"
+run/main_scene="res://scenes/main.tscn"
+config/features=PackedStringArray("4.4", "GL Compatibility")
+config/description="Offline bilingual sliding puzzle starter kit"
+
+[display]
+window/size/viewport_width=430
+window/size/viewport_height=760
+window/stretch/mode="canvas_items"
+
+[rendering]
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
