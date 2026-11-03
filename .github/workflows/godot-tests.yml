@@ -24,3 +24,17 @@ jobs:
         run: godot --headless --path game --script res://tests/test_engine.gd
       - name: Release tests
         run: godot --headless --path game --script res://tests/test_release.gd
+      - name: Render Godot interface in English and Arabic
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq xvfb libgl1-mesa-dri libx11-6 libxcursor1 libxinerama1 libxi6
+          xvfb-run -a -s "-screen 0 1280x900x24" godot --path game --rendering-driver opengl3 --script res://tests/capture_visual.gd
+          test -s /tmp/godot-visual-en.png
+          test -s /tmp/godot-visual-ar.png
+      - name: Upload visual screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: godot-visual-screenshots
+          path: /tmp/godot-visual-*.png
+          if-no-files-found: warn
