@@ -1,0 +1,26 @@
+name: Godot 4.4.1 source tests
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'game/**'
+      - '.github/workflows/godot-tests.yml'
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Godot 4.4.1
+        run: |
+          curl -fL --retry 3 -o godot.zip https://github.com/godotengine/godot/releases/download/4.4.1-stable/Godot_v4.4.1-stable_linux.x86_64.zip
+          unzip -q godot.zip
+          chmod +x Godot_v4.4.1-stable_linux.x86_64
+          sudo mv Godot_v4.4.1-stable_linux.x86_64 /usr/local/bin/godot
+      - name: Check project is present
+        run: test -f game/project.godot
+      - name: Import project
+        run: godot --headless --path game --editor --quit
+      - name: Engine tests
+        run: godot --headless --path game --script res://tests/test_engine.gd
+      - name: Release tests
+        run: godot --headless --path game --script res://tests/test_release.gd
